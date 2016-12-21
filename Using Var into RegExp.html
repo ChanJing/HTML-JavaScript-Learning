@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Using Var into RegExp</title>
+</head>
+<body>
+<h1>Pattern is "chanjing", Target String is "Visit CHANJING", Replace new String is "Caleb".</h1>
+<h2>Using String search() with String</h2>
+<h3>"Visit CHANJING".search(/chanjing/i)</h3>
+<p id="demo1"></p>
+
+<h2>Using Variable search() with RegExp Object</h2>
+<h3>"Visit CHANJING".research(ser) // ser = new RegExp(pattern, "i"), var pattern = "chanjing"</h3>
+<p id="demo2"></p>
+
+<h2>Using String replace() with String</h2>
+<h3>"Visit CHANJING".replace(/chanjing/i, "Caleb")</h3>
+<p id="demo3"></p>
+
+<h2>Using Varible replace() with RegExp Object</h2>
+<h3>"Visit CHANJING".replace(rep, repStr) // rep = new RegExp(pattern, "i"), var pattern = "chanjing", var repStr = "Caleb"</h3>
+<p id="demo4"></p>
+
+<script type="text/javascript">
+"use strict";
+
+// Using String search() with String
+var str = "Visit CHANJING";
+var pattern = "chanjing";
+var repStr = "Caleb";
+
+var dem1 = str.search(/chanjing/i);
+document.getElementById("demo1").innerHTML = dem1;
+
+var ser = new RegExp(pattern, "i");
+var dem2 = str.search(ser);
+document.getElementById("demo2").innerHTML = dem2;
+
+
+var dem3 = str.replace(/chanjing/i, "Caleb");
+document.getElementById("demo3").innerHTML = dem3;
+
+var rep = new RegExp(pattern, "i");
+var dem4 = str.replace(rep, repStr);
+document.getElementById("demo4").innerHTML = dem4;
+
+
+</script>
+</body>
+</html>
