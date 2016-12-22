@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>InputChangeEvent</title>
+</head>
+<body>
+<h1> Using Input Change Event and invoke XMLHttpReuqest</h1>
+<h2>Using oninput="" or onkeyup="" to listen the change of input</h2>
+<p>Using <b>oninput=""</b> to listen the change of input</p>
+<input type="text" name="" oninput="alert('oninput using')">
+
+<p>Using <b>onkeyup=""</b> to listen the change of input</p>
+<input type="text" onkeyup="alert('onkeyup using')">
+<br><br><br>
+<p>Using <b>the change of input</b> to invoke new XMLHttpRequest</p>
+<p>This XMLHttpRequest works under W3Schools demo</p>
+<form action="">
+	Input: <input type="text" id="txt" oninput="showHint(this.value)">
+</form>
+
+<p>Suggestions: <span id="txtHint"></span></p>
+
+
+<script type="text/javascript">
+"use strict";
+
+function showHint(str){
+	if (str.length == 0){
+		document.getElementById("txtHint").innerHTML = "";
+		return ;
+	}
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			document.getElementById("txtHint").innerHTML = this.responseText;
+		}
+	}
+	xmlhttp.open("GET", "gethint.php?q=" + str, true);
+	xmlhttp.send();
+}
+</script>
+</body>
+</html>
