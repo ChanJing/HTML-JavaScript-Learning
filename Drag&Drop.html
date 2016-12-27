@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drag and Drop</title>
+	<meta charset="utf-8">
+	<style>
+		#div1, #div2{
+			float: left;
+    	width: 100px;
+    	height: 35px;
+    	margin: 10px;
+    	padding: 10px;
+    	border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+
+<article>
+	<h2>Drap and Drop</h2>
+	<p>Drag the image back and forth between the two div elements.</p>
+	<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<img src="https://cdn2.iconfinder.com/data/icons/social-media-8/128/Chrome.png" draggable="true" ondragstart="drag(event)" id="drag1" width="40" height="40">
+	</div>
+	
+	<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+</article>
+
+
+<script type="text/javascript">
+	function allowDrop(event){
+		event.preventDefault();
+	}
+	function drag(event){
+		event.dataTransfer.setData("text", event.target.id);
+	}
+	function drop(event){
+		event.preventDefault();
+		var data = event.dataTransfer.getData("text");
+		event.target.appendChild(document.getElementById(data));
+	}
+</script>
+</body>
+</html>
