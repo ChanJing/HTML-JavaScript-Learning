@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<style type="text/css">
+.tooltip{
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext{
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px 0;
+
+	/* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+	opacity: 0;
+	transition: opacity 1s;
+
+}
+.tooltip .tooltiptextright{
+	/*Position the tooltip*/
+	position: absolute;
+	z-index: 1;
+	top: -5px;
+	left: 130%;
+}
+.tooltip .tooltiptextleft{
+	/*Position the tooltip*/
+	position: absolute;
+	z-index: 1;
+	bottom: -5px;
+	right: 130%;
+}
+.tooltip .tooltiptexttop{
+	/*Position the tooltip*/
+	position: absolute;
+	z-index: 1;
+	bottom: 150%;
+	left: 50%;
+	margin-left: -60px;
+}
+.tooltip .tooltiptextbottom{
+	/*Position the tooltip*/
+	position: absolute;
+	z-index: 1;
+	top: 150%;
+	left: 50%;
+	margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext{
+	visibility: visible;
+	opacity: 1;
+}
+
+/*Tooltip Arrows*/
+.tooltip .tooltiptexttop::after{
+	content: "";
+	position: absolute;
+	top: 100%; /* At the bottom of the tooltip */
+	left: 50%;
+	/* The border-width property specifies the size of the arrow. If you change this, also change the margin-left value to the same. This will keep the arrow centered.*/
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: black transparent transparent transparent;
+}
+
+.tooltip .tooltiptextbottom::after{
+	content: "";
+	position: absolute;
+	bottom: 100%;/* At the top of the tooltip */
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent black transparent;
+}
+
+.tooltip .tooltiptextright::after{
+	content: "";
+	position: absolute;
+	top: 35%; /*The original is 50%*/
+	right: 100%;/* To the left of the tooltip */
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent black transparent transparent;
+}
+
+.tooltip .tooltiptextleft::after{
+	content: "";
+	position: absolute;
+	top: 35%; /*The original is 50% */
+	left: 104%;/* To the right of the tooltip */
+	/*The original is 100% */
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent transparent black;
+}
+
+</style>
+</head>
+<body style="text-align: center;">
+<br><br><br><br>
+<div class="tooltip">Hover over me
+	<span class="tooltiptext tooltiptextright">Tooltip text right</span>
+	<span class="tooltiptext tooltiptextleft">Tooltip text left</span>
+	<span class="tooltiptext tooltiptexttop">Tooltip text top</span>
+	<span class="tooltiptext tooltiptextbottom">Tooltip text bottom</span>
+</div>
+
+</body>
+</html>
